@@ -6,7 +6,7 @@ nano /etc/apk/repositories
 
 apk update
 
-apk add openvpn py-pip docker
+apk add py-pip docker
 
 # Config cgroups properly
 echo "cgroup /sys/fs/cgroup cgroup defaults 0 0" >> /etc/fstab
