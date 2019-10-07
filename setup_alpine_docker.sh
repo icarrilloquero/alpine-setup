@@ -24,14 +24,14 @@ cpu = /cgroup/cpu;
 EOF
 
 # Isolate containers with a user namespace
-adduser -SDHs /sbin/nologin dockermap
-addgroup -S dockermap
-echo dockermap:$(cat /etc/passwd|grep dockermap|cut -d: -f3):65536 >> /etc/subuid
-echo dockermap:$(cat /etc/passwd|grep dockermap|cut -d: -f4):65536 >> /etc/subgid
+adduser -SDHs /sbin/nologin dockremap
+addgroup -S dockremap
+echo dockremap:$(cat /etc/passwd|grep dockremap|cut -d: -f3):65536 >> /etc/subuid
+echo dockremap:$(cat /etc/passwd|grep dockremap|cut -d: -f4):65536 >> /etc/subgid
 
 cat >> /etc/docker/daemon.json <<EOF
 {  
-        "userns-remap": "dockermap"
+        "userns-remap": "dockremap"
 }
 EOF
 
